@@ -2,13 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/background_main_weather_time_over"
-    android:layout_width="100dp"
-    android:layout_height="140dp"
-    android:layout_marginStart="10dp"
+    android:layout_width="73dp"
+    android:layout_height="114dp"
+    android:layout_marginStart="6dp"
     android:layout_marginTop="10dp"
-    android:background="#E5E4E2"
-    android:backgroundTint="#F9F9F6"
-    app:cardCornerRadius="20dp">
+    android:backgroundTint="#EAECEF"
+    app:cardCornerRadius="16dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,35 +16,41 @@
 
         <TextView
             android:id="@+id/text_clock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="39dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="17dp"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/manrope_medium"
             android:gravity="center"
             android:text="12:00"
-            android:textSize="22sp"
+            android:textColor="#8F96A1"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/image_clock"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="32dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="21dp"
             android:layout_marginTop="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_clock"
-            app:srcCompat="@drawable/cloud_sun" />
+            app:srcCompat="@drawable/sun" />
 
         <TextView
             android:id="@+id/text_clock_temp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/manrope_extrabold"
             android:gravity="center"
-            android:text="25 C"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="25°"
+            android:textColor="#2A2D33"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_clock" />
     </androidx.constraintlayout.widget.ConstraintLayout>
