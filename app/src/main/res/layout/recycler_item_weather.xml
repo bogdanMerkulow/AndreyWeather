@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_days"
         android:layout_width="match_parent"
@@ -104,11 +103,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/line"
                 tools:listitem="@layout/recycler_item_weather_time_over" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
