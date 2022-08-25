@@ -14,7 +14,6 @@ class WeatherOverTimeItem(private val weatherOverTimeData: WeatherOverTimeData) 
         super.bindView(binding, payloads)
 
 
-
     }
 
     override fun createBinding(

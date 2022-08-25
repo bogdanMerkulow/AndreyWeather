@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.weatherproject.FragmentDetailedInformationWeather
+import com.example.weatherproject.addcity.FragmentWeatherAddCity
 import com.example.weatherproject.common.fragment.navigateToFragment
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
@@ -39,7 +39,7 @@ class FragmentMainWeather : Fragment() {
         FastAdapterDiffUtil[weatherItemAdapter] = testWeatherData
 
         binding.btnGeolocation.setOnClickListener {
-            navigateToFragment(FragmentDetailedInformationWeather())
+            navigateToFragment(FragmentWeatherAddCity())
         }
     }
 
