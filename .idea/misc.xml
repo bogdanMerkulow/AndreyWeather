@@ -25,6 +25,14 @@
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather.xml" value="0.44380069524913096" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather_add_city.xml" value="0.264" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather_time_over.xml" value="0.536" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_dialog_add_city.xml" value="0.33" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_dialog_weather_change_city.xml" value="0.33" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_weather_add_city.xml" value="0.18697916666666667" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/recycler_item_add_city_dialog.xml" value="0.18697916666666667" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/recycler_item_dialog_weather_change_city.xml" value="0.18697916666666667" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/recycler_item_weather.xml" value="0.18697916666666667" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/recycler_item_weather_add_city.xml" value="0.18697916666666667" />
+        <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/recycler_item_weather_time_over.xml" value="0.18697916666666667" />
       </map>
     </option>
   </component>

@@ -4,7 +4,7 @@
     android:id="@+id/background_item_add_city_dialog"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
+    android:layout_marginStart="16dp"
     android:backgroundTint="#F3F5F8"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp">
