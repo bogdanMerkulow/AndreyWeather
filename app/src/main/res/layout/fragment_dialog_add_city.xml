@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="343dp"
+    android:layout_height="180dp"
+    android:background="#00FFFFFF"
+    android:backgroundTint="#00FFFFFF"
+    android:minWidth="343dp"
+    android:minHeight="180dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="0dp"
+    tools:context=".addcity.dialogaddcity.FragmentDialogAddCity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_edit_add_city_dialog"
+            android:layout_width="311dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="311dp"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:id="@+id/search_add_city_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_search__5__2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edit_add_city_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:fontFamily="@font/manrope_medium"
+                    android:hint="Введите город"
+                    android:textColor="#2A2D33"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/delete_add_city_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="9dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_add_city_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_edit_add_city_dialog"
+            tools:listitem="@layout/recycler_item_add_city_dialog" />
+
+        <Button
+            android:id="@+id/btn_cancel_add_city_dialog"
+            android:layout_width="151dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/style_cancel_add_city_dialog"
+            android:fontFamily="@font/manrope_bold"
+            android:text="Отменить"
+            android:textColor="#707782"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_add_city_dialog" />
+
+        <Button
+            android:id="@+id/btn_add_city_dialog"
+            android:layout_width="151dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/style_btn_add_city"
+            android:fontFamily="@font/manrope_bold"
+            android:text="Добавить"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/btn_cancel_add_city_dialog"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_add_city_dialog" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

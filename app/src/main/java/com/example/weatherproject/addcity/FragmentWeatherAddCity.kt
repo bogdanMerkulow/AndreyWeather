@@ -1,18 +1,16 @@
 package com.example.weatherproject.addcity
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.weatherproject.R
+import androidx.fragment.app.Fragment
+import com.example.weatherproject.addcity.dialogaddcity.FragmentDialogAddCity
 import com.example.weatherproject.addcity.item.WeatherAddCityItem
 import com.example.weatherproject.addcity.model.WeatherAddCityData
 import com.example.weatherproject.common.fragment.navigateToFragment
 import com.example.weatherproject.databinding.FragmentWeatherAddCityBinding
 import com.example.weatherproject.mainweather.FragmentMainWeather
-import com.example.weatherproject.mainweather.item.WeatherItem
-import com.example.weatherproject.mainweather.model.WeatherData
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
@@ -47,7 +45,12 @@ class FragmentWeatherAddCity : Fragment() {
         binding.btnBackAddCity.setOnClickListener {
             navigateToFragment(FragmentMainWeather())
         }
+        binding.btnAddCity.setOnClickListener {
+            val dialog = FragmentDialogAddCity()
+            dialog.show(parentFragmentManager, "fragmentDialogAddCity")
+        }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -70,7 +73,6 @@ private val testWeatherAddCityData = listOf(
     WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
     WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
     WeatherAddCityItem(WeatherAddCityData("Липецк", "25 С", "25 С"))
-
 )
 
 
