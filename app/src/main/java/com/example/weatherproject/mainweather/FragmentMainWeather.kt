@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.weatherproject.R
+import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
 import com.example.weatherproject.mainweather.model.WeatherData
+import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
@@ -19,6 +22,8 @@ class FragmentMainWeather : Fragment() {
 
     private var _binding: FragmentMainWeatherBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: MainWeatherViewModel by viewModels { getViewModelFactory() }
 
     private val weatherItemAdapter = ItemAdapter<WeatherItem>()
     private val fastAdapter = GenericFastAdapter.with(listOf(weatherItemAdapter))
