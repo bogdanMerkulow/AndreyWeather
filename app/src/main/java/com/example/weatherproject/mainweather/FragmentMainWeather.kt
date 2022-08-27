@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.weatherproject.addcity.FragmentWeatherAddCity
-import com.example.weatherproject.common.fragment.navigateToFragment
+import com.example.weatherproject.R
+import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
-import com.example.weatherproject.mainweather.changecity.FragmentDialogWeatherChangeCity
 import com.example.weatherproject.mainweather.item.WeatherItem
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.mikepenz.fastadapter.GenericFastAdapter
@@ -40,11 +39,10 @@ class FragmentMainWeather : Fragment() {
         FastAdapterDiffUtil[weatherItemAdapter] = testWeatherData
 
         binding.btnGeolocation.setOnClickListener {
-            navigateToFragment(FragmentWeatherAddCity())
+            navigate(R.id.main_weather_to_weather_add_city)
         }
         binding.btnSearch.setOnClickListener {
-            val dialog = FragmentDialogWeatherChangeCity()
-            dialog.show(parentFragmentManager, "fragmentDialogAddCity")
+            navigate(R.id.main_weather_to_dialog_change_city)
         }
     }
 
