@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.weatherproject.R
 import com.example.weatherproject.addcity.item.WeatherAddCityItem
 import com.example.weatherproject.addcity.model.WeatherAddCityData
+import com.example.weatherproject.addcity.viewmodel.WeatherAddCityViewModel
+import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentWeatherAddCityBinding
 import com.mikepenz.fastadapter.GenericFastAdapter
@@ -19,6 +22,8 @@ class FragmentWeatherAddCity : Fragment() {
 
     private var _binding: FragmentWeatherAddCityBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: WeatherAddCityViewModel by viewModels { getViewModelFactory() }
 
     private val weatherAddCityItemAdapter = ItemAdapter<WeatherAddCityItem>()
     private val fastAdapter = GenericFastAdapter.with(listOf(weatherAddCityItemAdapter))
