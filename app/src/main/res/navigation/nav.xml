@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/fragmentMainWeather">
+
+    <fragment
+        android:id="@+id/fragmentMainWeather"
+        android:name="com.example.weatherproject.mainweather.FragmentMainWeather"
+        android:label="fragment_main_weather"
+        tools:layout="@layout/fragment_main_weather">
+        <action
+            android:id="@+id/main_weather_to_dialog_change_city"
+            app:destination="@id/fragmentDialogWeatherChangeCity" />
+        <action
+            android:id="@+id/main_weather_to_weather_add_city"
+            app:destination="@id/fragmentWeatherAddCity" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragmentDialogWeatherChangeCity"
+        android:name="com.example.weatherproject.mainweather.changecity.FragmentDialogWeatherChangeCity"
+        android:label="FragmentDialogWeatherChangeCity">
+        <action
+            android:id="@+id/dialog_change_city_to_main_weather"
+            app:destination="@id/fragmentMainWeather" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/fragmentWeatherAddCity"
+        android:name="com.example.weatherproject.addcity.FragmentWeatherAddCity"
+        android:label="fragment_weather_add_city"
+        tools:layout="@layout/fragment_weather_add_city">
+
+        <action
+            android:id="@+id/weather_add_city_to_main_weather"
+            app:destination="@id/fragmentMainWeather" />
+        <action
+            android:id="@+id/weather_add_city_to_dialog_add_city"
+            app:destination="@id/fragmentDialogAddCity" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragmentDialogAddCity"
+        android:name="com.example.weatherproject.addcity.dialogaddcity.FragmentDialogAddCity"
+        android:label="FragmentDialogWeatherAddCity">
+        <action
+            android:id="@+id/dialog_add_city_to_weather_add_city"
+            app:destination="@id/fragmentWeatherAddCity" />
+    </dialog>
+
+
+</navigation>
