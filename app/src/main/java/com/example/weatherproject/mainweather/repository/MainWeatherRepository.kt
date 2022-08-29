@@ -4,4 +4,5 @@ import com.example.weatherproject.mainweather.model.WeatherData
 
 interface MainWeatherRepository {
 
+    fun getWeatherWeekAndOverTime(): List<WeatherData>
 }

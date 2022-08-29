@@ -11,7 +11,6 @@ import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
-import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -41,7 +40,10 @@ class FragmentMainWeather : Fragment() {
             adapter = fastAdapter
             itemAnimator = null
         }
-        FastAdapterDiffUtil[weatherItemAdapter] = testWeatherData
+        viewModel.resultWeatherWeek.observe(viewLifecycleOwner) {
+            FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
+        }
+        viewModel.loadWeatherWeekAndOverTime()
 
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)
@@ -57,14 +59,3 @@ class FragmentMainWeather : Fragment() {
     }
 }
 
-private val testWeatherData = listOf(
-    WeatherItem(WeatherData("item 1")),
-    WeatherItem(WeatherData("item 2")),
-    WeatherItem(WeatherData("item 3")),
-    WeatherItem(WeatherData("item 4")),
-    WeatherItem(WeatherData("item 5")),
-    WeatherItem(WeatherData("item 6")),
-    WeatherItem(WeatherData("item 7")),
-    WeatherItem(WeatherData("item 8")),
-    WeatherItem(WeatherData("item 9"))
-)
