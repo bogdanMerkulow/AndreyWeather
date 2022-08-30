@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherBinding
 import com.example.weatherproject.mainweather.model.WeatherData
-import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 
-class WeatherItem(private val weatherData: WeatherData) :
-    AbstractBindingItem<RecyclerItemWeatherBinding>() {
+class WeatherItem(
+    private val weatherData: WeatherData
+) : AbstractBindingItem<RecyclerItemWeatherBinding>() {
 
     private val weatherOverTimeItemAdapter = ItemAdapter<WeatherOverTimeItem>()
     private val fastAdapter = GenericFastAdapter.with(listOf(weatherOverTimeItemAdapter))
@@ -20,11 +20,18 @@ class WeatherItem(private val weatherData: WeatherData) :
     override fun bindView(binding: RecyclerItemWeatherBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
 
+        with(binding) {
+            textDays.text = weatherData.day
+            textDaysWeek.text = weatherData.week
+            textDaysTemp1.text = weatherData.minTemp
+            textDaysTemp2.text = weatherData.maxTemp
+        }
         with(binding.recyclerViewTimes) {
             adapter = fastAdapter
             itemAnimator = null
         }
-        FastAdapterDiffUtil[weatherOverTimeItemAdapter] = testWeatherOverTimeData
+        FastAdapterDiffUtil[weatherOverTimeItemAdapter] =
+            weatherData.weatherOverTimeData.map { WeatherOverTimeItem(it) }
     }
 
     override fun createBinding(
@@ -32,16 +39,5 @@ class WeatherItem(private val weatherData: WeatherData) :
     ): RecyclerItemWeatherBinding =
         RecyclerItemWeatherBinding.inflate(inflater, parent, false)
 
-
     override val type: Int = R.id.background_item_main_weather
 }
-
-private val testWeatherOverTimeData = listOf(
-    WeatherOverTimeItem(WeatherOverTimeData("12:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("14:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("16:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("18:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("20:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("22:00", "25 C")),
-    WeatherOverTimeItem(WeatherOverTimeData("00:00", "25 C"))
-)
