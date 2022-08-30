@@ -13,7 +13,11 @@ class WeatherAddCityItem(private val weatherAddCityData: WeatherAddCityData) :
     override fun bindView(binding: RecyclerItemWeatherAddCityBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
 
-
+        binding.apply {
+            textNameAddCity.text = weatherAddCityData.nameCity
+            tempMaxAddCity.text = weatherAddCityData.tempMax
+            tempMinAddCity.text = weatherAddCityData.tempMin
+        }
     }
 
     override fun createBinding(

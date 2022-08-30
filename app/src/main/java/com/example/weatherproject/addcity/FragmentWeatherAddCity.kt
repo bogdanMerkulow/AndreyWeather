@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.weatherproject.R
 import com.example.weatherproject.addcity.item.WeatherAddCityItem
-import com.example.weatherproject.addcity.model.WeatherAddCityData
 import com.example.weatherproject.addcity.viewmodel.WeatherAddCityViewModel
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
@@ -35,7 +34,6 @@ class FragmentWeatherAddCity : Fragment() {
         .also { _binding = it }
         .root
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,8 +41,12 @@ class FragmentWeatherAddCity : Fragment() {
             adapter = fastAdapter
             itemAnimator = null
         }
-
-        FastAdapterDiffUtil[weatherAddCityItemAdapter] = testWeatherAddCityData
+        viewModel.resultWeatherAddCity.observe(viewLifecycleOwner) {
+            FastAdapterDiffUtil[weatherAddCityItemAdapter] = it.map {
+                WeatherAddCityItem(it)
+            }
+        }
+        viewModel.loadWeatherAddCity()
 
         binding.btnBackAddCity.setOnClickListener {
             navigate(R.id.weather_add_city_to_main_weather)
@@ -54,28 +56,8 @@ class FragmentWeatherAddCity : Fragment() {
         }
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
-
-private val testWeatherAddCityData = listOf(
-    WeatherAddCityItem(WeatherAddCityData("Москва", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Санкт-Петербург", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Тамбов", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Воронеж", "25 С", "25 С")),
-    WeatherAddCityItem(WeatherAddCityData("Липецк", "25 С", "25 С"))
-)
-
-
