@@ -12,6 +12,7 @@ class WeatherOverTimeItem(private val weatherOverTimeData: WeatherOverTimeData) 
 
     override fun bindView(binding: RecyclerItemWeatherTimeOverBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
+        
         binding.textClock.text = weatherOverTimeData.clock
         binding.textClockTemp.text = weatherOverTimeData.temp
 

@@ -60,9 +60,6 @@ class FragmentMainWeather : Fragment() {
             loadWeatherTempPreview()
             loadWeatherFeelingTempPreview()
         }
-
-
-
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)
         }

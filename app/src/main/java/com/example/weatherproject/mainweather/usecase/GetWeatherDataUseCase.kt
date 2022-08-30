@@ -15,5 +15,4 @@ class GetWeatherDataUseCase(
     fun executeWeatherPreview(): WeatherPreviewData {
         return mainWeatherRepository.getWeatherPreview()
     }
-
 }
