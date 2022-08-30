@@ -2,10 +2,13 @@ package com.example.weatherproject.mainweather.repository
 
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
+import com.example.weatherproject.mainweather.model.WeatherPreviewData
 
 class MainWeatherRepositoryImpl() : MainWeatherRepository {
 
     override fun getWeatherWeekAndOverTime(): List<WeatherData> = testWeatherWeek
+    override fun getWeatherPreview(): WeatherPreviewData = testWeatherPreview
+
 }
 
 private val testWeatherWeek by lazy {
@@ -31,3 +34,10 @@ private val testWeatherOverTime = listOf(
     WeatherOverTimeData("22:00", "22°"),
     WeatherOverTimeData("00:00", "20°"),
 )
+private val testWeatherPreview =
+    WeatherPreviewData(
+        "Сегодня, 22 августа, чт",
+        "24°",
+        "Ясно, ощущается, как 25° "
+
+    )

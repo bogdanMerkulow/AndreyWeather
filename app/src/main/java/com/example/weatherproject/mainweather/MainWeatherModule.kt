@@ -15,11 +15,11 @@ import dagger.multibindings.IntoMap
 class MainWeatherModule {
 
     @Provides
-    fun provideUseCase(mainWeatherRepository: MainWeatherRepository) : GetWeatherDataUseCase =
+    fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherDataUseCase =
         GetWeatherDataUseCase(mainWeatherRepository)
 
     @Provides
-    fun provideRepository() : MainWeatherRepository = MainWeatherRepositoryImpl()
+    fun provideRepository(): MainWeatherRepository = MainWeatherRepositoryImpl()
 
     @Provides
     @IntoMap

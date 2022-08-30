@@ -108,7 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/image_weather_preview" />
 
             <TextView
-                android:id="@+id/text_feeling_temperature_preview"
+                android:id="@+id/text_feeling_temp_preview"
                 android:layout_width="279dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="2dp"

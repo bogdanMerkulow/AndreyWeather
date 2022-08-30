@@ -1,9 +1,8 @@
 package com.example.weatherproject.common.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.weatherproject.mainweather.FragmentMainWeather
+import androidx.appcompat.app.AppCompatActivity
 import com.example.weatherproject.R
 
 private const val WAITING_TIME = 2000

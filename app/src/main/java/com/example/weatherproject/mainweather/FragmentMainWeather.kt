@@ -40,10 +40,28 @@ class FragmentMainWeather : Fragment() {
             adapter = fastAdapter
             itemAnimator = null
         }
-        viewModel.resultWeatherWeek.observe(viewLifecycleOwner) {
-            FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
+        with(viewModel) {
+            resultWeatherWeek.observe(viewLifecycleOwner) {
+                FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
+            }
+            resultWeatherPreview.observe(viewLifecycleOwner) {
+                binding.textPreviewWeather.text = it.dataPreview
+            }
+            resultTempPreview.observe(viewLifecycleOwner) {
+                binding.textTempPreview.text = it.tempPreview
+            }
+            resultFeelingTempPreview.observe(viewLifecycleOwner) {
+                binding.textFeelingTempPreview.text = it.feelingTemp
+            }
         }
-        viewModel.loadWeatherWeekAndOverTime()
+        viewModel.apply {
+            loadWeatherWeekAndOverTime()
+            loadWeatherPreview()
+            loadWeatherTempPreview()
+            loadWeatherFeelingTempPreview()
+        }
+
+
 
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)
