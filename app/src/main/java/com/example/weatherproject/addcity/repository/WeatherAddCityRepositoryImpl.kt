@@ -1,0 +1,31 @@
+package com.example.weatherproject.addcity.repository
+
+import com.example.weatherproject.addcity.model.WeatherAddCityData
+
+class WeatherAddCityRepositoryImpl : WeatherAddCityRepository {
+
+    override fun getWeatherAddCity(): List<WeatherAddCityData> = testWeatherAddCityData
+
+}
+
+private val testWeatherAddCityData = listOf(
+    WeatherAddCityData("Москва", "25 С", "25 С"),
+    WeatherAddCityData("Санкт-Петербург", "25 С", "25 С"),
+    WeatherAddCityData("Тамбов", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Воронеж", "25 С", "25 С"),
+    WeatherAddCityData("Липецк", "25 С", "25 С")
+)
