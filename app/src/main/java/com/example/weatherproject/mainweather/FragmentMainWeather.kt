@@ -45,13 +45,13 @@ class FragmentMainWeather : Fragment() {
                 FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
             }
             resultWeatherPreview.observe(viewLifecycleOwner) {
-                binding.textPreviewWeather.text = it.dataPreview
+                binding.textPreviewWeather.text = it.icon
             }
             resultTempPreview.observe(viewLifecycleOwner) {
-                binding.textTempPreview.text = it.tempPreview
+                binding.textTempPreview.text = it.country
             }
             resultFeelingTempPreview.observe(viewLifecycleOwner) {
-                binding.textFeelingTempPreview.text = it.feelingTemp
+                binding.textFeelingTempPreview.text = it.main
             }
         }
         viewModel.apply {

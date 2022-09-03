@@ -1,7 +1,15 @@
 package com.example.weatherproject.mainweather.model
 
+
 data class WeatherPreviewData(
-    val dataPreview: String,
-    val tempPreview: String,
-    val feelingTemp: String
-)
+
+    val description: String,
+    val feels_like: Double,
+    val icon: String,
+    val country: String,
+    val id: Int,
+    val temp: Double,
+    val main: String
+
+
+    )

@@ -1,7 +1,8 @@
 package com.example.weatherproject.mainweather.model
 
-
-data class WeatherOverTimeData(
-    val temp: Double,
+data class Weather(
     val description: String,
+    val icon: String,
+    val id: Int,
+    val main: String
 )

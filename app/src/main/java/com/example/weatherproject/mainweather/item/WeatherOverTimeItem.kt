@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherTimeOverBinding
+import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
@@ -12,9 +13,9 @@ class WeatherOverTimeItem(private val weatherOverTimeData: WeatherOverTimeData) 
 
     override fun bindView(binding: RecyclerItemWeatherTimeOverBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
-        
-        binding.textClock.text = weatherOverTimeData.clock
-        binding.textClockTemp.text = weatherOverTimeData.temp
+
+        binding.textClock.text = weatherOverTimeData.temp.toString()
+        binding.textClockTemp.text = weatherOverTimeData.temp.toString()
 
     }
 
