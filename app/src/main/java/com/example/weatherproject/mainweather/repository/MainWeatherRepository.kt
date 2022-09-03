@@ -1,14 +1,16 @@
 package com.example.weatherproject.mainweather.repository
 
-import com.example.weatherproject.mainweather.model.WeatherDataApi
-import com.example.weatherproject.mainweather.model.WeatherPreviewData
+import com.example.weatherproject.mainweather.model.WeatherData
+import com.example.weatherproject.mainweather.model.WeatherNetworkResponse
 import io.reactivex.Single
 
 interface MainWeatherRepository {
 
-    fun getWeatherWeekAndOverTime(): Single<List<WeatherDataApi>>
-    fun getWeatherPreview(): Single<WeatherPreviewData>
-    fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherDataApi>>
-    fun getLoadWeatherPreview(): Single<WeatherPreviewData>
+    fun getWeatherWeekAndOverTime(): Single<List<WeatherData>>
+    fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherData>>
+
+
+    //    fun getWeatherPreview(): Single<WeatherPreviewData>
+//    fun getLoadWeatherPreview(): Single<WeatherPreviewData>
 
 }

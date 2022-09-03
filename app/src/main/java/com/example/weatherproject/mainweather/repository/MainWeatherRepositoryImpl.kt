@@ -1,34 +1,54 @@
 package com.example.weatherproject.mainweather.repository
 
+import android.annotation.SuppressLint
 import com.example.weatherproject.common.api.WeatherApi
-import com.example.weatherproject.mainweather.model.WeatherDataApi
-import com.example.weatherproject.mainweather.model.WeatherPreviewData
+import com.example.weatherproject.mainweather.model.WeatherData
+import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class MainWeatherRepositoryImpl(private val weatherApi: WeatherApi) : MainWeatherRepository {
 
-    override fun getWeatherWeekAndOverTime(): Single<List<WeatherDataApi>> {
-        return weatherApi.getWeatherWeekAndOverTime()
+    override fun getWeatherWeekAndOverTime(): Single<List<WeatherData>> {
+        val response = weatherApi.getWeatherData()
+        return response.map {
+            it.map {
+                WeatherData(
+                    it.temp,
+                    it.description,
+                    it.temp_max,
+                    it.dt_txt,
+                    it.temp_min,
+
+                    list = listOf(
+                        WeatherOverTimeData(
+                            dt_txt = it.toString(),
+                            temp = it.toString()
+
+                        )
+                    )
+
+                )
+            }
+
+
+        }
+
     }
 
-    override fun getWeatherPreview(): Single<WeatherPreviewData> {
-        return weatherApi.getWeatherPreview()
-    }
-
-    override fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherDataApi>> {
-        return weatherApi.getWeatherWeekAndOverTime()
+    override fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherData>> {
+        return getWeatherWeekAndOverTime()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
 
-    override fun getLoadWeatherPreview(): Single<WeatherPreviewData> {
-        return weatherApi.getWeatherPreview()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    }
+//    override fun getLoadWeatherPreview(): Single<WeatherPreviewData> {
+//        return weatherApi.getWeatherPreview()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//    }
 }
 //
 //private val testWeatherWeek by lazy {

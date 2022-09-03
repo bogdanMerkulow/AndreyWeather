@@ -44,21 +44,21 @@ class FragmentMainWeather : Fragment() {
             resultWeatherWeek.observe(viewLifecycleOwner) {
                 FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
             }
-            resultWeatherPreview.observe(viewLifecycleOwner) {
-                binding.textPreviewWeather.text = it.icon
-            }
-            resultTempPreview.observe(viewLifecycleOwner) {
-                binding.textTempPreview.text = it.country
-            }
-            resultFeelingTempPreview.observe(viewLifecycleOwner) {
-                binding.textFeelingTempPreview.text = it.main
-            }
+//            resultWeatherPreview.observe(viewLifecycleOwner) {
+//                binding.textPreviewWeather.text = it.icon
+//            }
+//            resultTempPreview.observe(viewLifecycleOwner) {
+//                binding.textTempPreview.text = it.country
+//            }
+//            resultFeelingTempPreview.observe(viewLifecycleOwner) {
+//                binding.textFeelingTempPreview.text = it.main
+//            }
         }
         viewModel.apply {
             loadWeatherWeekAndOverTime()
-            loadWeatherPreview()
-            loadWeatherTempPreview()
-            loadWeatherFeelingTempPreview()
+//            loadWeatherPreview()
+//            loadWeatherTempPreview()
+//            loadWeatherFeelingTempPreview()
         }
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)

@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherBinding
-import com.example.weatherproject.mainweather.model.WeatherDataApi
+import com.example.weatherproject.mainweather.model.WeatherData
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 
 class WeatherItem(
-    private val weatherData: WeatherDataApi
+    private val weatherData: WeatherData
 ) : AbstractBindingItem<RecyclerItemWeatherBinding>() {
 
     private val weatherOverTimeItemAdapter = ItemAdapter<WeatherOverTimeItem>()
@@ -21,17 +21,20 @@ class WeatherItem(
         super.bindView(binding, payloads)
 
         with(binding) {
-            textDays.text = weatherData.pressure.toString()
-            textDaysWeek.text = weatherData.pressure.toString()
-            textDaysTemp1.text = weatherData.temp_min.toString()
-            textDaysTemp2.text = weatherData.temp_max.toString()
+            textDays.text = weatherData.dt_txt
+            textDaysWeek.text = weatherData.dt_txt
+            textDaysTemp1.text = weatherData.temp_min
+            textDaysTemp2.text = weatherData.temp_max
         }
         with(binding.recyclerViewTimes) {
             adapter = fastAdapter
             itemAnimator = null
         }
+//        FastAdapterDiffUtil[weatherOverTimeItemAdapter] = weatherData.dt_txt
+
         FastAdapterDiffUtil[weatherOverTimeItemAdapter] =
             weatherData.list.map { WeatherOverTimeItem(it) }
+
     }
 
     override fun createBinding(

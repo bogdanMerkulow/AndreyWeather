@@ -1,7 +1,6 @@
 package com.example.weatherproject.common.api
 
-import com.example.weatherproject.mainweather.model.WeatherDataApi
-import com.example.weatherproject.mainweather.model.WeatherPreviewData
+import com.example.weatherproject.mainweather.model.WeatherNetworkResponse
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,10 +14,7 @@ const val API_KEY =
 interface WeatherApi {
 
     @GET(API_KEY)
-    fun getWeatherWeekAndOverTime(): Single<List<WeatherDataApi>>
-
-    @GET(API_KEY)
-    fun getWeatherPreview(): Single<WeatherPreviewData>
+    fun getWeatherData(): Single<List<WeatherNetworkResponse>>
 
     companion object {
         fun create(): WeatherApi {
