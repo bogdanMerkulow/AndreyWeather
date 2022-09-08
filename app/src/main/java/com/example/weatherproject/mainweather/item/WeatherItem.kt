@@ -1,9 +1,13 @@
 package com.example.weatherproject.mainweather.item
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherBinding
+import com.example.weatherproject.mainweather.dateFormatDays
+import com.example.weatherproject.mainweather.imageWeather
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -17,23 +21,30 @@ class WeatherItem(
     private val weatherOverTimeItemAdapter = ItemAdapter<WeatherOverTimeItem>()
     private val fastAdapter = GenericFastAdapter.with(listOf(weatherOverTimeItemAdapter))
 
+    @SuppressLint("SimpleDateFormat", "NewApi", "SetTextI18n")
     override fun bindView(binding: RecyclerItemWeatherBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
 
+        val dtTimes = weatherData.dt.times(1000)
+
+
         with(binding) {
-            textDays.text = weatherData.dt_txt
-            textDaysWeek.text = weatherData.dt_txt
-            textDaysTemp1.text = weatherData.temp_min
-            textDaysTemp2.text = weatherData.temp_max
+            textDays.text = dateFormatDays.format(dtTimes)
+            textDaysTemp1.text = "${weatherData.temp_min.toInt()}°  "
+            textDaysTemp2.text = "${weatherData.temp_max.toInt()}°"
         }
+        Glide
+            .with(binding.root)
+            .load(weatherData.icon.imageWeather)
+            .into(binding.imageDays)
+
         with(binding.recyclerViewTimes) {
             adapter = fastAdapter
             itemAnimator = null
         }
-//        FastAdapterDiffUtil[weatherOverTimeItemAdapter] = weatherData.dt_txt
 
         FastAdapterDiffUtil[weatherOverTimeItemAdapter] =
-            weatherData.list.map { WeatherOverTimeItem(it) }
+            weatherData.listOverTimeData.map { WeatherOverTimeItem(it) }
 
     }
 

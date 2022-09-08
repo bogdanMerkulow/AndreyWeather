@@ -1,6 +1,10 @@
 package com.example.weatherproject.mainweather.model
 
 data class WeatherOverTimeData(
-    val dt_txt: String,
-    val temp: String
+    val dt: Long,
+    val temp: Double,
+    val temp_min: Double,
+    val temp_max: Double,
+    val description: String,
+    val icon: String,
 )
