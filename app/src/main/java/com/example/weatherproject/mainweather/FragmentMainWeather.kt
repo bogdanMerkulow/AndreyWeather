@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
+import com.example.weatherproject.common.context.toast
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
@@ -46,10 +47,12 @@ class FragmentMainWeather : Fragment() {
         with(viewModel) {
             resultWeatherWeek.observe(viewLifecycleOwner) {
                 FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
+            }
+            resultWeatherPreview.observe(viewLifecycleOwner) {
                 binding.apply {
 
                     val dtTimes = it.first().dt.times(1000)
-                    textPreviewWeather.text = dateFormatPreview.format(dtTimes)
+                    textPreviewWeather.text = dtTimes.dateFormatPreview()
                     textTempPreview.text = "${it.first().temp.toInt()}°"
                     textFeelingTempPreview.text = it.first().description
 
@@ -63,6 +66,7 @@ class FragmentMainWeather : Fragment() {
                 context.toast(it)
             }
             loadWeatherWeekAndOverTime()
+            loadWeatherPreview()
         }
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)

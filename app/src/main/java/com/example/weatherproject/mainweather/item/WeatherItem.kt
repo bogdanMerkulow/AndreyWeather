@@ -25,11 +25,9 @@ class WeatherItem(
     override fun bindView(binding: RecyclerItemWeatherBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
 
-        val dtTimes = weatherData.dt.times(1000)
-
-
         with(binding) {
-            textDays.text = dateFormatDays.format(dtTimes)
+            val dtTimes = weatherData.dt.times(1000)
+            textDays.text = dtTimes.dateFormatDays()
             textDaysTemp1.text = "${weatherData.temp_min.toInt()}°  "
             textDaysTemp2.text = "${weatherData.temp_max.toInt()}°"
         }

@@ -4,9 +4,11 @@ import androidx.lifecycle.ViewModel
 import com.example.weatherproject.common.api.BASE_URL
 import com.example.weatherproject.common.api.WeatherApi
 import com.example.weatherproject.common.network.NetworkModule
+import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepositoryImpl
 import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
+import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
 import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
@@ -30,6 +32,10 @@ class MainWeatherModule {
         MainWeatherRepositoryImpl(weatherApi)
 
     @Provides
+    fun providePreviewRepository(weatherApi: WeatherApi): MainWeatherPreviewRepository =
+        MainWeatherRepositoryImpl(weatherApi)
+
+    @Provides
     fun provideRetrofit(
         gsonConverterFactory: GsonConverterFactory,
         rxJava2CallAdapterFactory: RxJava2CallAdapterFactory
@@ -50,12 +56,22 @@ class MainWeatherModule {
         GetWeatherDataUseCase(mainWeatherRepository)
 
     @Provides
+    fun providePreviewUseCase(mainWeatherPreviewRepository: MainWeatherPreviewRepository):
+            GetWeatherPreviewDataUseCase =
+        GetWeatherPreviewDataUseCase(mainWeatherPreviewRepository)
+
+    @Provides
     @IntoMap
     @ClassKey(MainWeatherViewModel::class)
     fun getViewModelMainWeather(
         getWeatherDataUseCase: GetWeatherDataUseCase,
+        getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
         weatherEventBus: BehaviorSubject<Int>
     ): ViewModel {
-        return MainWeatherViewModel(getWeatherDataUseCase, weatherEventBus)
+        return MainWeatherViewModel(
+            getWeatherDataUseCase,
+            getWeatherPreviewDataUseCase,
+            weatherEventBus
+        )
     }
 }

@@ -13,9 +13,9 @@ class GetWeatherDataUseCase(private val mainWeatherRepository: MainWeatherReposi
     fun executeWeatherWeekAndOverTime(): Single<List<WeatherData>> {
         return mainWeatherRepository.getLoadWeatherWeekAndOverTime().map {
             it.forEach {
-                if (weatherDays[dateFormat.format(it.dt)] != null)
-                    weatherDays[dateFormat.format(it.dt)]?.add(it)
-                else weatherDays[dateFormat.format(it.dt)] = mutableListOf()
+                if (weatherDays[it.dt.dateFormat()] != null)
+                    weatherDays[it.dt.dateFormat()]?.add(it)
+                else weatherDays[it.dt.dateFormat()] = mutableListOf()
             }
             weatherDays.map {
                 WeatherData(
@@ -23,7 +23,6 @@ class GetWeatherDataUseCase(private val mainWeatherRepository: MainWeatherReposi
                     it.value.first().temp,
                     it.value.first().temp_min,
                     it.value.first().temp_max,
-                    it.value.first().description,
                     it.value.first().icon,
                     it.value
                 )

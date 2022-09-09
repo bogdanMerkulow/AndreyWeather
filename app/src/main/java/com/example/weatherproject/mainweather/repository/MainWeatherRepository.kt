@@ -8,5 +8,4 @@ interface MainWeatherRepository {
     fun getWeatherWeekAndOverTime(): Single<List<WeatherOverTimeData>>
     fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherOverTimeData>>
 
-
 }
