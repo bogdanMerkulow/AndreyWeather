@@ -45,6 +45,11 @@ class MainWeatherViewModel(
                 _internetError.postValue(it.message)
             })
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.dispose()
+    }
 }
 
 

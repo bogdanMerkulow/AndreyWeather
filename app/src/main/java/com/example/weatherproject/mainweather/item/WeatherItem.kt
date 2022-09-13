@@ -15,7 +15,7 @@ import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 
 class WeatherItem(
-    private val weatherData: WeatherData
+    private val weatherData: WeatherData,
 ) : AbstractBindingItem<RecyclerItemWeatherBinding>() {
 
     private val weatherOverTimeItemAdapter = ItemAdapter<WeatherOverTimeItem>()

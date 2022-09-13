@@ -6,5 +6,5 @@ data class WeatherData(
     val temp_min: Double,
     val temp_max: Double,
     val icon: String,
-    val listOverTimeData: List<WeatherOverTimeData>
+    val listOverTimeData: List<WeatherOverTimeData>,
 )

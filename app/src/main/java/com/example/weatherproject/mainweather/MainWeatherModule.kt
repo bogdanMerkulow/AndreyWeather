@@ -60,6 +60,7 @@ class MainWeatherModule {
             GetWeatherPreviewDataUseCase =
         GetWeatherPreviewDataUseCase(mainWeatherPreviewRepository)
 
+
     @Provides
     @IntoMap
     @ClassKey(MainWeatherViewModel::class)

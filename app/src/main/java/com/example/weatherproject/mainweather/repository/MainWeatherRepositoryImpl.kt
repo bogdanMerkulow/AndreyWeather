@@ -25,12 +25,6 @@ class MainWeatherRepositoryImpl(private val weatherApi: WeatherApi) :
         }
     }
 
-    override fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherOverTimeData>> {
-        return getWeatherWeekAndOverTime()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    }
-
     override fun getWeatherPreview(): Single<List<WeatherPreviewData>> {
         val responsePreview = weatherApi.getWeatherData()
         return responsePreview.map {
@@ -44,6 +38,13 @@ class MainWeatherRepositoryImpl(private val weatherApi: WeatherApi) :
             }
         }
     }
+
+    override fun getLoadWeatherWeekAndOverTime(): Single<List<WeatherOverTimeData>> {
+        return getWeatherWeekAndOverTime()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
 
     override fun getLoadWeatherPreview(): Single<List<WeatherPreviewData>> {
         return getWeatherPreview()
