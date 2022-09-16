@@ -18,7 +18,7 @@ class GetWeatherDataUseCase(private val mainWeatherRepository: MainWeatherReposi
                     weatherDays[it.dt.dateFormat()]?.add(it)
                 else weatherDays[it.dt.dateFormat()] = mutableListOf(it)
             }
-
+            
             weatherDays.map {
                 WeatherData(
                     it.value.first().dt,

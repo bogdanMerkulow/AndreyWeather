@@ -14,7 +14,7 @@ val dateFormatPreview = SimpleDateFormat("Сегодня, d MMM EEE", Locale("ru
 val dateFormatDays = SimpleDateFormat("d MMM EEE", Locale("ru"))
 
 fun Long.dateFormat(): String {
-    return dateFormat.format(this)
+    return dateFormat.format(this * 1000)
 }
 
 fun Long.dateFormatDays(): String {
