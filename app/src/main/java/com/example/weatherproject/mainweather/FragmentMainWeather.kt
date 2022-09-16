@@ -1,12 +1,15 @@
 package com.example.weatherproject.mainweather
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.example.weatherproject.R
+import com.example.weatherproject.common.context.toast
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
@@ -34,6 +37,7 @@ class FragmentMainWeather : Fragment() {
         .also { _binding = it }
         .root
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding.recyclerViewWeather) {
@@ -45,20 +49,24 @@ class FragmentMainWeather : Fragment() {
                 FastAdapterDiffUtil[weatherItemAdapter] = it.map { WeatherItem(it) }
             }
             resultWeatherPreview.observe(viewLifecycleOwner) {
-                binding.textPreviewWeather.text = it.dataPreview
+                binding.apply {
+
+                    val dtTimes = it.first().dt.times(1000)
+                    textPreviewWeather.text = dtTimes.dateFormatPreview()
+                    textTempPreview.text = "${it.first().temp.toInt()}°"
+                    textFeelingTempPreview.text = it.first().description
+
+                    Glide
+                        .with(view.rootView.context)
+                        .load(it.first().icon.imageWeather)
+                        .into(imageWeatherPreview)
+                }
             }
-            resultTempPreview.observe(viewLifecycleOwner) {
-                binding.textTempPreview.text = it.tempPreview
+            internetError.observe(viewLifecycleOwner) {
+                context.toast(it)
             }
-            resultFeelingTempPreview.observe(viewLifecycleOwner) {
-                binding.textFeelingTempPreview.text = it.feelingTemp
-            }
-        }
-        viewModel.apply {
             loadWeatherWeekAndOverTime()
             loadWeatherPreview()
-            loadWeatherTempPreview()
-            loadWeatherFeelingTempPreview()
         }
         binding.btnGeolocation.setOnClickListener {
             navigate(R.id.main_weather_to_weather_add_city)

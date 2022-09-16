@@ -1,9 +1,10 @@
 package com.example.weatherproject.mainweather.model
 
 data class WeatherData(
-    val day: String,
-    val week: String,
-    val minTemp: String,
-    val maxTemp: String,
-    val weatherOverTimeData: List<WeatherOverTimeData>
+    val dt: Long,
+    val temp: Double,
+    val temp_min: Double,
+    val temp_max: Double,
+    val icon: String,
+    val listOverTimeData: List<WeatherOverTimeData>,
 )
