@@ -10,7 +10,7 @@ class GetWeatherDataUseCase(private val mainWeatherRepository: MainWeatherReposi
 
     private val weatherDays = mutableMapOf<String, MutableList<WeatherOverTimeData>>()
 
-    fun executeWeatherWeekAndOverTime(): Single<List<WeatherData>> {
+    operator fun invoke(): Single<List<WeatherData>> {
         return mainWeatherRepository.getLoadWeatherWeekAndOverTime().map {
 
             it.forEach {

@@ -11,7 +11,7 @@ class GetWeatherPreviewDataUseCase(
 
     private val weatherPreview = mutableMapOf<String, MutableList<WeatherPreviewData>>()
 
-    fun executeWeatherPreview(): Single<List<WeatherPreviewData>> {
+   operator fun invoke(): Single<List<WeatherPreviewData>> {
         return mainWeatherPreviewRepository.getLoadWeatherPreview().map {
             it.forEach {
                 if (weatherPreview[it.dt.dateFormatUnixTimePreview()] != null)
