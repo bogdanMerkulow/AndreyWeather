@@ -8,7 +8,9 @@ import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepos
 import com.example.weatherproject.mainweather.repository.MainWeatherRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepositoryImpl
 import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
+import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCaseImpl
 import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
+import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCaseImpl
 import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
@@ -53,12 +55,12 @@ class MainWeatherModule {
 
     @Provides
     fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherDataUseCase =
-        GetWeatherDataUseCase(mainWeatherRepository)
+        GetWeatherDataUseCaseImpl(mainWeatherRepository)
 
     @Provides
     fun providePreviewUseCase(mainWeatherPreviewRepository: MainWeatherPreviewRepository):
             GetWeatherPreviewDataUseCase =
-        GetWeatherPreviewDataUseCase(mainWeatherPreviewRepository)
+        GetWeatherPreviewDataUseCaseImpl(mainWeatherPreviewRepository)
 
 
     @Provides
