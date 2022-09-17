@@ -1,6 +1,6 @@
 package com.example.weatherproject.mainweather.usecase
 
-import com.example.weatherproject.mainweather.dateFormat
+import com.example.weatherproject.mainweather.dateFormatUnixTime
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.example.weatherproject.mainweather.repository.MainWeatherRepository
@@ -14,9 +14,9 @@ class GetWeatherDataUseCase(private val mainWeatherRepository: MainWeatherReposi
         return mainWeatherRepository.getLoadWeatherWeekAndOverTime().map {
 
             it.forEach {
-                if (weatherDays[it.dt.dateFormat()] != null)
-                    weatherDays[it.dt.dateFormat()]?.add(it)
-                else weatherDays[it.dt.dateFormat()] = mutableListOf(it)
+                if (weatherDays[it.dt.dateFormatUnixTime()] != null)
+                    weatherDays[it.dt.dateFormatUnixTime()]?.add(it)
+                else weatherDays[it.dt.dateFormatUnixTime()] = mutableListOf(it)
             }
 
             weatherDays.map {

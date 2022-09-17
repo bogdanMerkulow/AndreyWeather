@@ -1,6 +1,6 @@
 package com.example.weatherproject.mainweather.usecase
 
-import com.example.weatherproject.mainweather.dateFormat
+import com.example.weatherproject.mainweather.dateFormatUnixTimePreview
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
 import io.reactivex.Single
@@ -14,9 +14,9 @@ class GetWeatherPreviewDataUseCase(
     fun executeWeatherPreview(): Single<List<WeatherPreviewData>> {
         return mainWeatherPreviewRepository.getLoadWeatherPreview().map {
             it.forEach {
-                if (weatherPreview[it.dt.dateFormat()] != null)
-                    weatherPreview[it.dt.dateFormat()]?.add(it)
-                else weatherPreview[it.dt.dateFormat()] = mutableListOf()
+                if (weatherPreview[it.dt.dateFormatUnixTimePreview()] != null)
+                    weatherPreview[it.dt.dateFormatUnixTimePreview()]?.add(it)
+                else weatherPreview[it.dt.dateFormatUnixTimePreview()] = mutableListOf()
             }
             weatherPreview.map {
                 WeatherPreviewData(

@@ -13,8 +13,12 @@ val dataFormatHours = SimpleDateFormat("H:mm ")
 val dateFormatPreview = SimpleDateFormat("Сегодня, d MMM EEE", Locale("ru"))
 val dateFormatDays = SimpleDateFormat("d MMM EEE", Locale("ru"))
 
-fun Long.dateFormat(): String {
+fun Long.dateFormatUnixTime(): String {
     return dateFormat.format(this * 1000)
+}
+
+fun Long.dateFormatUnixTimePreview(): String {
+    return dateFormat.format(this)
 }
 
 fun Long.dateFormatDays(): String {
