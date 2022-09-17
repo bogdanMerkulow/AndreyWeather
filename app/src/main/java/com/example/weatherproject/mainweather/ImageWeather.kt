@@ -5,15 +5,23 @@ import com.example.weatherproject.R
 val String.imageWeather: Int
     get() = when (this) {
         "01d" -> R.drawable.sun
-        "02d" -> R.drawable.thunder
-        "03d" -> R.drawable.thunder
-        "04d" -> R.drawable.thunder
+        "02d" -> R.drawable.sun
+        "03d" -> R.drawable.sun
+        "04d" -> R.drawable.sun
+        "09d" -> R.drawable.rain
         "10d" -> R.drawable.rain
+        "11d" -> R.drawable.thunder
+        "13d" -> R.drawable.sun
+        "50d" -> R.drawable.sun
         "01n" -> R.drawable.sun
-        "02n" -> R.drawable.thunder
-        "03n" -> R.drawable.thunder
-        "04n" -> R.drawable.thunder
+        "02n" -> R.drawable.sun
+        "03n" -> R.drawable.sun
+        "04n" -> R.drawable.sun
+        "09n" -> R.drawable.rain
         "10n" -> R.drawable.rain
+        "11n" -> R.drawable.thunder
+        "13n" -> R.drawable.sun
+        "50n" -> R.drawable.sun
         else -> R.drawable.ic_baseline_error_24
     }
 
