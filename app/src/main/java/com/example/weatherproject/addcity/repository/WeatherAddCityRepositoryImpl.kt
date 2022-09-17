@@ -9,8 +9,8 @@ class WeatherAddCityRepositoryImpl : WeatherAddCityRepository {
 }
 
 private val testWeatherAddCityData = listOf(
-    WeatherAddCityData("Москва", "25 С", "25 С"),
-    WeatherAddCityData("Санкт-Петербург", "25 С", "25 С"),
+    WeatherAddCityData("Москва", "25°", "25°"),
+    WeatherAddCityData("Санкт-Петербург", "25°", "25°"),
     WeatherAddCityData("Тамбов", "25 С", "25 С"),
     WeatherAddCityData("Воронеж", "25 С", "25 С"),
     WeatherAddCityData("Воронеж", "25 С", "25 С"),

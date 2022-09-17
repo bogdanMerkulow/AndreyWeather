@@ -96,8 +96,8 @@
             <TextView
                 android:id="@+id/text_temp_preview"
                 android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="6dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/manrope_extrabold"
                 android:gravity="center"
                 android:text="30°"

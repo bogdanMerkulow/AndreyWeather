@@ -20,22 +20,22 @@
             android:id="@+id/card_view_edit_change_city_dialog"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            app:cardElevation="1dp"
-            android:backgroundTint="@color/white"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
             app:cardCornerRadius="12dp"
+            app:cardElevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="311dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp">
 
                 <ImageView
                     android:id="@+id/search_change_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
@@ -43,11 +43,11 @@
                     android:src="@drawable/ic_search__5__2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/edit_change_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="8dp"
@@ -59,19 +59,21 @@
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/delete_change_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="22dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="281dp"
                     android:layout_marginTop="9dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="9dp"
                     android:src="@drawable/ic_plus"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
@@ -89,6 +91,7 @@
 
         <Button
             android:id="@+id/btn_cancel_change_city_dialog"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -96,16 +99,16 @@
             android:background="@drawable/style_cancel_add_city_dialog"
             android:fontFamily="@font/manrope_bold"
             android:text="Отменить"
-            style="?android:attr/borderlessButtonStyle"
             android:textColor="#707782"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_change_city_dialog"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_change_city_dialog" />
 
         <Button
             android:id="@+id/btn_change_city_dialog"
-            android:layout_width="151dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="9dp"
             android:layout_marginTop="32dp"
@@ -113,12 +116,11 @@
             android:background="@drawable/style_btn_add_city"
             android:fontFamily="@font/manrope_bold"
             android:text="Выбрать"
-            style="?android:attr/borderlessButtonStyle"
             android:textColor="@color/white"
             android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_cancel_change_city_dialog"
-            app:layout_constraintTop_toBottomOf="@id/recycler_view_change_city_dialog"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_change_city_dialog" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

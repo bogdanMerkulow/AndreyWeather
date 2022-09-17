@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/btn_back_add_city"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -18,7 +18,7 @@
 
     <ImageView
         android:id="@+id/btn_change_theme_add_city"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="327dp"
         android:layout_marginTop="20dp"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/text_city"
-        android:layout_width="279dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/manrope_extrabold"
@@ -63,7 +63,7 @@
 
     <Button
         android:id="@+id/btn_add_city"
-        android:layout_width="151dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="88dp"
         android:layout_marginEnd="136dp"
@@ -74,15 +74,18 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btn_geolocation_add_city"
-        android:layout_width="40dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/ic_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_add_city" />
 
