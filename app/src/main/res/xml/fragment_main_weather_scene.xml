@@ -33,6 +33,8 @@
         <Constraint
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_marginBottom="86dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintTop_toBottomOf="@+id/text_city"
             android:id="@+id/recycler_view_weather" />
     </ConstraintSet>
