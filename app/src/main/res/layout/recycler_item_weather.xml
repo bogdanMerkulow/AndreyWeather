@@ -40,7 +40,7 @@
                 android:id="@+id/text_days_temp_1"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="251dp"
+                android:layout_marginStart="218dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/manrope_extrabold"
                 android:text="25° "
@@ -63,7 +63,7 @@
 
             <ImageView
                 android:id="@+id/image_days"
-                android:layout_width="0dp"
+                android:layout_width="30dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="18dp"
