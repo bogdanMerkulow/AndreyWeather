@@ -45,7 +45,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/manrope_extrabold"
         android:gravity="center"
-        android:text="Тамбов"
+        android:text="Санкт-Петербург"
         android:textColor="#2A2D33"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
