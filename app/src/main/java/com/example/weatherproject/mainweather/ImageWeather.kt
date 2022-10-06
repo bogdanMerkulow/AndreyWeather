@@ -2,8 +2,8 @@ package com.example.weatherproject.mainweather
 
 import com.example.weatherproject.R
 
-val String.imageWeather: Int
-    get() = when (this) {
+fun String.imageWeather(): Int {
+    return when (this) {
         "01d" -> R.drawable.sun
         "02d" -> R.drawable.sun
         "03d" -> R.drawable.sun
@@ -24,4 +24,5 @@ val String.imageWeather: Int
         "50n" -> R.drawable.sun
         else -> R.drawable.ic_baseline_error_24
     }
+}
 

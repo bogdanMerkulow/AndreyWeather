@@ -3,6 +3,7 @@ package com.example.weatherproject.mainweather.usecase
 import com.example.weatherproject.mainweather.dateFormatUnixTime
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
+import com.example.weatherproject.mainweather.model.toWeatherData
 import com.example.weatherproject.mainweather.repository.MainWeatherRepository
 import io.reactivex.Single
 
@@ -21,16 +22,9 @@ class GetWeatherDataUseCaseImpl(
                 else weatherDays[it.dt.dateFormatUnixTime()] = mutableListOf(it)
             }
 
-            weatherDays.map {
-                WeatherData(
-                    it.value.first().dt,
-                    it.value.first().temp,
-                    it.value.first().temp_min,
-                    it.value.first().temp_max,
-                    it.value.first().icon,
-                    it.value
-                )
-            }
+            val weatherDataWithOutLastElement = weatherDays.toWeatherData().toMutableList()
+            weatherDataWithOutLastElement.removeLast()
+            weatherDataWithOutLastElement
         }
     }
 }

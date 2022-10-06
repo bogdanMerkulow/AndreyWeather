@@ -4,11 +4,11 @@ import com.example.weatherproject.addcity.model.WeatherAddCityData
 
 class WeatherAddCityRepositoryImpl : WeatherAddCityRepository {
 
-    override fun getWeatherAddCity(): List<WeatherAddCityData> = testWeatherAddCityData
+    override fun getWeatherAddCity(): List<WeatherAddCityData> = testAddCity
 
 }
 
-private val testWeatherAddCityData = listOf(
+private val testAddCity = listOf(
     WeatherAddCityData("Москва", "25°", "25°"),
     WeatherAddCityData("Санкт-Петербург", "25°", "25°"),
     WeatherAddCityData("Тамбов", "25 С", "25 С"),

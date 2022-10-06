@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherTimeOverBinding
-import com.example.weatherproject.mainweather.dataFormatHours
+import com.example.weatherproject.mainweather.TIME_FORMAT
 import com.example.weatherproject.mainweather.dateFormatHours
 import com.example.weatherproject.mainweather.imageWeather
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
@@ -20,11 +20,11 @@ class WeatherOverTimeItem(private val weatherOverTimeData: WeatherOverTimeData) 
     override fun bindView(binding: RecyclerItemWeatherTimeOverBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
 
-        val dtTimes = weatherOverTimeData.dt.times(1000)
+        val dtTimes = weatherOverTimeData.dt.times(TIME_FORMAT)
 
         Glide
             .with(binding.root)
-            .load(weatherOverTimeData.icon.imageWeather)
+            .load(weatherOverTimeData.icon.imageWeather())
             .into(binding.imageClock)
 
         binding.textClock.text = dtTimes.dateFormatHours()
