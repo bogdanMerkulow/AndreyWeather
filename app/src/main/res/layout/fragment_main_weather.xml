@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/btn_geolocation"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -19,7 +19,7 @@
 
     <ImageView
         android:id="@+id/btn"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
@@ -30,7 +30,7 @@
 
     <ImageView
         android:id="@+id/btn_search"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
@@ -40,12 +40,12 @@
 
     <TextView
         android:id="@+id/text_city"
-        android:layout_width="279dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/manrope_extrabold"
         android:gravity="center"
-        android:text="Тамбов"
+        android:text="Санкт-Петербург"
         android:textColor="#2A2D33"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/text_preview_weather"
-                android:layout_width="158dp"
+                android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/manrope_semibold"
@@ -85,7 +85,7 @@
 
             <ImageView
                 android:id="@+id/image_weather_preview"
-                android:layout_width="120dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -95,9 +95,9 @@
 
             <TextView
                 android:id="@+id/text_temp_preview"
-                android:layout_width="279dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="6dp"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/manrope_extrabold"
                 android:gravity="center"
                 android:text="30°"
@@ -109,7 +109,7 @@
 
             <TextView
                 android:id="@+id/text_feeling_temp_preview"
-                android:layout_width="279dp"
+                android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
@@ -129,6 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="20dp"
+        android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

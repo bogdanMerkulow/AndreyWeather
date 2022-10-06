@@ -29,7 +29,7 @@ class MainWeatherViewModel(
     private val compositeDisposable = CompositeDisposable()
 
     fun loadWeatherWeekAndOverTime() {
-        compositeDisposable += getWeatherDataUseCase.executeWeatherWeekAndOverTime()
+        compositeDisposable += getWeatherDataUseCase()
             .subscribe({
                 _resultWeatherWeek.postValue(it)
             }, {
@@ -38,7 +38,7 @@ class MainWeatherViewModel(
     }
 
     fun loadWeatherPreview() {
-        compositeDisposable += getWeatherPreviewDataUseCase.executeWeatherPreview()
+        compositeDisposable += getWeatherPreviewDataUseCase()
             .subscribe({
                 _resultWeatherPreview.postValue(it)
             }, {

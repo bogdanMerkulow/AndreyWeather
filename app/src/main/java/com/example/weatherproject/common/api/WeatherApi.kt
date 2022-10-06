@@ -9,10 +9,9 @@ import retrofit2.http.GET
 
 const val BASE_URL = "https://api.openweathermap.org"
 const val API_KEY =
-    "/data/2.5/forecast?id=498817&units=metric&appid=1fb564b0448c20cff8c8a08d408dba5b&lang=ru"
+    "/data/2.5/forecast?q=Saint Petersburg&units=metric&appid=1fb564b0448c20cff8c8a08d408dba5b&lang=ru"
 
 interface WeatherApi {
-
     @GET(API_KEY)
     fun getWeatherData(): Single<WeatherResponse>
 

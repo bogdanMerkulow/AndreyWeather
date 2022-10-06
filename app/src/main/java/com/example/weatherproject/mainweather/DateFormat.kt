@@ -1,20 +1,32 @@
 package com.example.weatherproject.mainweather
 
 import android.annotation.SuppressLint
+import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import java.text.SimpleDateFormat
 import java.util.*
 
-@SuppressLint("SimpleDateFormat")
-val dateFormat = SimpleDateFormat("dd")
+const val DATE_FORMAT = "dd"
+const val DATE_FORMAT_HOURS = "H:mm "
+const val DATE_FORMAT_PREVIEW = "Сегодня, d MMM EEE"
+const val DATE_FORMAT_DAYS = "d MMM EEE"
+const val LANGUAGE = "ru"
+const val TIME_FORMAT = 1000
 
 @SuppressLint("SimpleDateFormat")
-val dataFormatHours = SimpleDateFormat("H:mm ")
+val dateFormat = SimpleDateFormat(DATE_FORMAT)
 
-val dateFormatPreview = SimpleDateFormat("Сегодня, d MMM EEE", Locale("ru"))
-val dateFormatDays = SimpleDateFormat("d MMM EEE", Locale("ru"))
+@SuppressLint("SimpleDateFormat")
+val dataFormatHours = SimpleDateFormat(DATE_FORMAT_HOURS)
 
-fun Long.dateFormat(): String {
-    return dateFormat.format(this * 1000)
+val dateFormatPreview = SimpleDateFormat(DATE_FORMAT_PREVIEW, Locale(LANGUAGE))
+val dateFormatDays = SimpleDateFormat(DATE_FORMAT_DAYS, Locale(LANGUAGE))
+
+fun Long.dateFormatUnixTime(): String {
+    return dateFormat.format(this * TIME_FORMAT)
+}
+
+fun Long.dateFormatUnixTimePreview(): String {
+    return dateFormat.format(this)
 }
 
 fun Long.dateFormatDays(): String {
