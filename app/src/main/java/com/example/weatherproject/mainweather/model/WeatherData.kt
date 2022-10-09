@@ -7,6 +7,7 @@ data class WeatherData(
     val temp_max: Double,
     val icon: String,
     val listOverTimeData: List<WeatherOverTimeData>,
+    val description: String
 )
 
 fun Map<String, List<WeatherOverTimeData>>.toWeatherData() =
@@ -17,6 +18,7 @@ fun Map<String, List<WeatherOverTimeData>>.toWeatherData() =
             it.value.first().temp_min,
             it.value.first().temp_max,
             it.value.first().icon,
-            it.value
+            it.value,
+            it.value.first().description
         )
     }

@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
-import com.example.weatherproject.common.context.toast
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.navigate
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
+import com.example.weatherproject.mainweather.model.State
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
@@ -46,15 +47,15 @@ class FragmentMainWeather : Fragment() {
         }
         setupObservables()
         setupListeners()
+        viewModel.loadWeather()
+
     }
 
     private fun setupObservables() {
         with(viewModel) {
-            resultWeatherWeek.observe(viewLifecycleOwner, ::onDataLoaded)
-            loadWeatherWeekAndOverTime()
-            resultWeatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
-            loadWeatherPreview()
-            internetError.observe(viewLifecycleOwner) { toast(it) }
+            weatherWeek.observe(viewLifecycleOwner, ::onDataLoaded)
+            weatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
+            screenState.observe(viewLifecycleOwner, ::stateScreen)
         }
     }
 
@@ -62,18 +63,18 @@ class FragmentMainWeather : Fragment() {
         FastAdapterDiffUtil[weatherItemAdapter] = weatherData.map { WeatherItem(it) }
     }
 
-    private fun onDataLoadedPreview(weatherPreviewData: List<WeatherPreviewData>) {
-        val dtTimes = weatherPreviewData.first().dt.times(TIME_FORMAT)
+    private fun onDataLoadedPreview(weatherPreviewData: WeatherPreviewData) {
+        val dtTimes = weatherPreviewData.dt.times(TIME_FORMAT)
         binding.apply {
             textPreviewWeather.text = dtTimes.dateFormatPreview()
-            textFeelingTempPreview.text = weatherPreviewData.first().description
+            textFeelingTempPreview.text = weatherPreviewData.description
             textTempPreview.text = requireContext().resources.getString(
-                R.string.temp, weatherPreviewData.first().temp.toInt().toString()
+                R.string.temp, weatherPreviewData.temp.toInt().toString()
             )
         }
         Glide
             .with(requireView())
-            .load(weatherPreviewData.first().icon.imageWeather())
+            .load(weatherPreviewData.icon.imageWeather())
             .into(binding.imageWeatherPreview)
     }
 
@@ -84,6 +85,35 @@ class FragmentMainWeather : Fragment() {
         binding.btnSearch.setOnClickListener {
             navigate(R.id.main_weather_to_dialog_change_city)
         }
+    }
+
+    private fun stateScreen(state: State) {
+        when (state) {
+            State.Loading -> onScreenLoading()
+            State.Loaded -> onScreenLoaded()
+            State.Error -> onScreenError()
+        }
+    }
+
+    private fun onScreenLoading() {
+//        binding.group.isVisible = false
+        binding.includedStatusLayout.groupError.isVisible = false
+        binding.includedStatusLayout.progressBarState.isVisible = true
+
+    }
+
+    private fun onScreenLoaded() {
+        binding.group.isVisible = true
+        binding.includedStatusLayout.groupError.isVisible = false
+        binding.includedStatusLayout.progressBarState.isVisible = false
+
+    }
+
+    private fun onScreenError() {
+        binding.group.isVisible = false
+        binding.includedStatusLayout.progressBarState.isVisible = false
+        binding.includedStatusLayout.groupError.isVisible = true
+
     }
 
     override fun onDestroyView() {

@@ -6,6 +6,7 @@
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/ic_location.xml" value="0.2145" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/ic_rectangle_18.xml" value="0.2145" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/ic_search__5__2.xml" value="0.24" />
+        <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/ic_theme_change.xml" value="0.1495" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/style_btn_add_city.xml" value="0.2145" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/style_close_add_city_dialog.xml" value="0.2145" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/drawable/style_dialog_bg.xml" value="0.2145" />
@@ -17,7 +18,7 @@
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_dialog_add_city.xml" value="0.4" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_dialog_weather_change_city.xml" value="0.4" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_main_weathe_scene_startr.xml" value="0.1" />
-        <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_main_weather.xml" value="0.264" />
+        <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_main_weather.xml" value="0.20152091254752852" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_main_weather_scene_end.xml" value="0.16" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_main_weather_scene_start.xml" value="0.25" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/fragment_weather_add_city.xml" value="0.264" />
@@ -26,6 +27,8 @@
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather.xml" value="0.264" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather_add_city.xml" value="0.264" />
         <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/recycler_item_weather_time_over.xml" value="0.536" />
+        <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/state_layout.xml" value="0.25" />
+        <entry key="..\:/COD/WeatherProject/app/src/main/res/layout/status_layout.xml" value="0.20878623188405798" />
         <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_dialog_add_city.xml" value="0.33" />
         <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_dialog_weather_change_city.xml" value="0.33" />
         <entry key="..\:/Projects/android/WeatherProject/app/src/main/res/layout/fragment_weather_add_city.xml" value="0.18697916666666667" />
