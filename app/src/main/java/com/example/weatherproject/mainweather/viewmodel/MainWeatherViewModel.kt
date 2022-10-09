@@ -4,45 +4,36 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherproject.common.rx.plusAssign
+import com.example.weatherproject.mainweather.model.State
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
-import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.subjects.BehaviorSubject
 
 class MainWeatherViewModel(
     private val getWeatherDataUseCase: GetWeatherDataUseCase,
-    private val getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
-    private val weatherEventBus: BehaviorSubject<Int>
 ) : ViewModel() {
 
-    private val _resultWeatherWeek: MutableLiveData<List<WeatherData>> = MutableLiveData()
-    val resultWeatherWeek: LiveData<List<WeatherData>> get() = _resultWeatherWeek
+    private val _weatherWeek: MutableLiveData<List<WeatherData>> = MutableLiveData()
+    val weatherWeek: LiveData<List<WeatherData>> get() = _weatherWeek
 
-    private val _resultWeatherPreview: MutableLiveData<List<WeatherPreviewData>> = MutableLiveData()
-    val resultWeatherPreview: LiveData<List<WeatherPreviewData>> get() = _resultWeatherPreview
+    private val _weatherPreview: MutableLiveData<WeatherPreviewData> = MutableLiveData()
+    val weatherPreview: LiveData<WeatherPreviewData> get() = _weatherPreview
 
-    private val _internetError: MutableLiveData<String> = MutableLiveData()
-    val internetError: LiveData<String> get() = _internetError
+    private var _screenState: MutableLiveData<State> = MutableLiveData()
+    val screenState: LiveData<State> get() = _screenState
 
     private val compositeDisposable = CompositeDisposable()
 
-    fun loadWeatherWeekAndOverTime() {
+    fun loadWeather() {
+        _screenState.postValue(State.Loading)
         compositeDisposable += getWeatherDataUseCase()
             .subscribe({
-                _resultWeatherWeek.postValue(it)
+                _weatherWeek.postValue(it.weather)
+                _weatherPreview.postValue(it.weatherPreview)
+                _screenState.postValue(State.Loaded)
             }, {
-                _internetError.postValue(it.message)
-            })
-    }
-
-    fun loadWeatherPreview() {
-        compositeDisposable += getWeatherPreviewDataUseCase()
-            .subscribe({
-                _resultWeatherPreview.postValue(it)
-            }, {
-                _internetError.postValue(it.message)
+                _screenState.postValue(State.Error)
             })
     }
 

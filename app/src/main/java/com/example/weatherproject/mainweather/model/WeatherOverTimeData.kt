@@ -6,4 +6,5 @@ data class WeatherOverTimeData(
     val temp_min: Double,
     val temp_max: Double,
     val icon: String,
+    val description: String
 )
